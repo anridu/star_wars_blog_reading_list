@@ -1,14 +1,15 @@
 import React, { useContext, useState, useEffect } from "react";
 import { Context } from "../store/appContext";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import PropTypes from "prop-types";
 import rigoImage from "../../img/rigo-baby.jpg";
 
-export const PlanetCard = props => {
+export const PlanetDetail = () => {
 	const [details, setDetails] = useState();
-
+	const params = useParams();
+	console.log(params);
 	useEffect(() => {
-		fetch(props.data.url)
+		fetch(`https://www.swapi.tech/api/planets/${params.id}`)
 			.then(resp => resp.json())
 			.then(data => {
 				setDetails(data.result.properties);
@@ -21,14 +22,10 @@ export const PlanetCard = props => {
 			<div className="card-body">
 				<h5 className="card-title">{details ? details.name : "loading"}</h5>
 				<p className="card-text">{details ? details.population : "loading"}</p>
-				<Link to={`/planet/${props.data.uid}`} className="btn btn-primary">
-					See more
+				<Link to="/" className="btn btn-primary">
+					Home
 				</Link>
 			</div>
 		</div>
 	);
-};
-
-PlanetCard.propTypes = {
-	data: PropTypes.object
 };

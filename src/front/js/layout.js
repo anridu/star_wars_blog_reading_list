@@ -4,11 +4,11 @@ import ScrollToTop from "./component/scrollToTop";
 
 import { Home } from "./pages/home";
 import { Demo } from "./pages/demo";
-import { Single } from "./pages/single";
 import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
+import { PlanetDetail } from "./pages/planet_detail";
 
 //create your first component
 const Layout = () => {
@@ -28,8 +28,8 @@ const Layout = () => {
 						<Route exact path="/demo">
 							<Demo />
 						</Route>
-						<Route exact path="/single/:theid">
-							<Single />
+						<Route exact path="/planet/:id">
+							<PlanetDetail />
 						</Route>
 						<Route>
 							<h1>Not found!</h1>

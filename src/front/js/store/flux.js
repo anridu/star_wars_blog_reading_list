@@ -21,13 +21,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			exampleFunction: () => {
 				getActions().changeColor(0, "green");
 			},
-			getMessage: () => {
-				// fetching data from the backend
-				fetch(process.env.BACKEND_URL + "/planets")
-					.then(resp => resp.json())
-					.then(data => setStore({ message: data.message }))
-					.catch(error => console.log("Error loading message from backend", error));
-			},
+			getMessage: () => {},
 			changeColor: (index, color) => {
 				//get the store
 				const store = getStore();
@@ -49,17 +43,17 @@ const getState = ({ getStore, getActions, setStore }) => {
 						setStore({ planets: data.results });
 					})
 					.catch(error => console.log("Error loading message from backend", error));
-			},
-			getPlanet: url => {
-				fetch(url)
-					.then(resp => resp.json())
-					.then(data => {
-						//Here we should recover only 1 planet
-						debugger;
-						// What do we should update?
-					})
-					.catch(error => console.log("Error loading message from backend", error));
 			}
+			// getPlanet: url => {
+			// 	fetch(url)
+			// 		.then(resp => resp.json())
+			// 		.then(data => {
+			// 			//Here we should recover only 1 planet
+			// 			debugger;
+			// 			// What do we should update?
+			// 		})
+			// 		.catch(error => console.log("Error loading message from backend", error));
+			// }
 		}
 	};
 };

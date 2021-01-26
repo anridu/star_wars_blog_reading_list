@@ -28,8 +28,8 @@ const injectContext = PassedComponent => {
 			 * you should do your ajax requests or fetch api requests here. Do not use setState() to save data in the
 			 * store, instead use actions, like this:
 			 **/
-			debugger;
-			console.log(process.env.START_WARS_API);
+
+			console.log("url", process.env.START_WARS_API);
 
 			state.actions.getMessage(); // <---- calling this function from the flux.js actions
 			state.actions.getPlanets(process.env.START_WARS_API + "/planets");
