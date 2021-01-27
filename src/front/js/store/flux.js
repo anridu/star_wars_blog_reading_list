@@ -14,7 +14,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 					initial: "white"
 				}
 			],
-			planets: []
+			planets: [],
+			people: []
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
@@ -41,6 +42,15 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then(resp => resp.json())
 					.then(data => {
 						setStore({ planets: data.results });
+					})
+					.catch(error => console.log("Error loading message from backend", error));
+			},
+
+			getPeople: url => {
+				fetch(url)
+					.then(resp => resp.json())
+					.then(data => {
+						setStore({ people: data.results });
 					})
 					.catch(error => console.log("Error loading message from backend", error));
 			}

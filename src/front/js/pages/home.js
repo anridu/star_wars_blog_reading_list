@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { Context } from "../store/appContext";
 import { PlanetCard } from "../component/planetCard";
+import { PeopleCard } from "../component/peopleCard";
 import rigoImage from "../../img/rigo-baby.jpg";
 import "../../styles/home.scss";
 
@@ -15,6 +16,14 @@ export const Home = () => {
 		);
 	});
 
+	const listPeople = store.people.map((value, index) => {
+		return (
+			<div key={index} className="col-md-4">
+				<PeopleCard data={value} />
+			</div>
+		);
+	});
+
 	//const listPeople;
 	//const listVehicules;
 
@@ -23,6 +32,9 @@ export const Home = () => {
 			{/* Here is a list of planets */}
 			<h1>Planets</h1>
 			<div className="row">{listPlanets}</div>
+
+			<h1>People</h1>
+			<div className="row">{listPeople}</div>
 
 			{/* Here is a list of people */}
 
