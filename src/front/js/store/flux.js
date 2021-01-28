@@ -60,6 +60,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 				setStore({ favorities: [...store.favorities, element] });
 			},
 			deleteElementFromFavorities: element => {
+				const store = getStore();
+				setStore({ favorities: [] });
 				//Homework :) :)
 			}
 		}
