@@ -24,6 +24,9 @@ export const PlanetCard = props => {
 				<Link to={`/planet/${props.data.uid}`} className="btn btn-primary">
 					See more
 				</Link>
+				<button className="btn">
+					<i className="far fa-heart" />
+				</button>
 			</div>
 		</div>
 	);
