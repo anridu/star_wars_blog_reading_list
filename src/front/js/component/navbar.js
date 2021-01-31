@@ -15,6 +15,13 @@ export const Navbar = () => {
 						favorities
 						<span className="badge badge-secondary"> 0</span>
 					</button>
+					{/* <ul class="dropdown-menu">
+                        <li><a className="dropdown-item" href="#">Action</a></li>
+                        <li><a className="dropdown-item" href="#">Another action</a></li>
+                        <li><a className="dropdown-item" href="#">Something else here</a></li>
+                        <li><hr className="dropdown-divider"></li>
+                            <li><a className="dropdown-item" href="#">Separated link</a></li>
+                        </ul> */}
 				</Link>
 			</div>
 		</nav>

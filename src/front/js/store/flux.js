@@ -59,11 +59,15 @@ const getState = ({ getStore, getActions, setStore }) => {
 				debugger;
 				setStore({ favorities: [...store.favorities, element] });
 			},
-			deleteElementFromFavorities: element => {
-				const store = getStore();
-				setStore({ favorities: [] });
-				//Homework :) :)
+			removeItem: index => {
+				const newFavorities = [...favorities];
+				newFavorities.splice(index, 1);
+				setStore(newFavorities);
 			}
+			// deleteElementFromFavorities: element => {
+			// 	const store = getStore();
+			// 	setStore({ favorities: [] });
+			// 	//Homework :) :)
 		}
 	};
 };
