@@ -1,22 +1,9 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-			message: null,
-			demo: [
-				{
-					title: "FIRST",
-					background: "white",
-					initial: "white"
-				},
-				{
-					title: "SECOND",
-					background: "white",
-					initial: "white"
-				}
-			],
 			planets: [],
 			people: [],
-			favorities: []
+			favorites: []
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
@@ -54,19 +41,20 @@ const getState = ({ getStore, getActions, setStore }) => {
 					})
 					.catch(error => console.log("Error loading message from backend", error));
 			},
-			addFavorities: element => {
+			addFavorites: element => {
 				const store = getStore();
 				debugger;
-				setStore({ favorities: [...store.favorities, element] });
+				setStore({ favorites: [...store.favorites, element] });
 			},
 			removeItem: index => {
-				const newFavorities = [...favorities];
-				newFavorities.splice(index, 1);
-				setStore(newFavorities);
+				const store = getStore();
+				const newFavorites = store.favorites;
+				newFavorites.splice(index, 1);
+				setStore({ favorites: newFavorites });
 			}
-			// deleteElementFromFavorities: element => {
+			// deleteElementFromFavorites: element => {
 			// 	const store = getStore();
-			// 	setStore({ favorities: [] });
+			// 	setStore({ favorites: [] });
 			// 	//Homework :) :)
 		}
 	};

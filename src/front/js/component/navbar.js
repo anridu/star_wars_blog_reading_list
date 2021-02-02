@@ -1,7 +1,20 @@
-import React from "react";
+import React, { useState, useEffect, useContext } from "react";
+import { Context } from "../store/appContext";
 import { Link } from "react-router-dom";
 import starwars from "../../img/starwars.png";
+import DropdownButton from "react-bootstrap/DropdownButton";
+import Dropdown from "react-bootstrap/Dropdown";
+
 export const Navbar = () => {
+	const { store, actions } = useContext(Context);
+	const favoritesItems = store.favorites.map((item, index) => {
+		return (
+			<Dropdown.Item key={index}>
+				{item.properties.name}
+				<i onClick={() => actions.removeItem(index)} className="fa fa-trash ml-2" aria-hidden="true" />
+			</Dropdown.Item>
+		);
+	});
 	return (
 		<nav className="navbar navbar-light bg-light mb-3">
 			<Link to="/">
@@ -10,19 +23,9 @@ export const Navbar = () => {
 				</span>
 			</Link>
 			<div className="ml-auto">
-				<Link to="/">
-					<button className="btn btn-primary dropdown-toggle">
-						favorities
-						<span className="badge badge-secondary"> 0</span>
-					</button>
-					{/* <ul class="dropdown-menu">
-                        <li><a className="dropdown-item" href="#">Action</a></li>
-                        <li><a className="dropdown-item" href="#">Another action</a></li>
-                        <li><a className="dropdown-item" href="#">Something else here</a></li>
-                        <li><hr className="dropdown-divider"></li>
-                            <li><a className="dropdown-item" href="#">Separated link</a></li>
-                        </ul> */}
-				</Link>
+				<DropdownButton id="dropdown-basic-button" title={`Favorites ${store.favorites.length}`}>
+					{favoritesItems}
+				</DropdownButton>
 			</div>
 		</nav>
 	);

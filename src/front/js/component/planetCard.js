@@ -16,7 +16,7 @@ export const PlanetCard = props => {
 			});
 	}, []);
 
-	let isFavorite = store.favorities.find(element => element.uid === props.data.uid) !== undefined;
+	let isFavorite = store.favorites.find(element => element.uid === props.data.uid) !== undefined;
 
 	return (
 		<div className="card box-shadow">
@@ -27,7 +27,7 @@ export const PlanetCard = props => {
 				<Link to={`/planet/${props.data.uid}`} className="btn btn-primary">
 					See more
 				</Link>
-				<button className="btn" onClick={event => actions.addFavorities(details)}>
+				<button className="btn" onClick={event => actions.addFavorites(details)}>
 					<i className={isFavorite ? "fas fa-heart" : "far fa-heart"} />
 				</button>
 			</div>
