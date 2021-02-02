@@ -43,7 +43,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 			addFavorites: element => {
 				const store = getStore();
-				debugger;
 				setStore({ favorites: [...store.favorites, element] });
 			},
 			removeItem: index => {

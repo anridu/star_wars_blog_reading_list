@@ -16,7 +16,6 @@ export const PeopleCard = props => {
 			});
 	}, []);
 
-	debugger;
 	let isFavorite = store.favorites.find(element => element.uid === props.data.uid) !== undefined;
 
 	return (

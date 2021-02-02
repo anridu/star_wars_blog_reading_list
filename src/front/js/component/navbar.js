@@ -8,9 +8,15 @@ import Dropdown from "react-bootstrap/Dropdown";
 export const Navbar = () => {
 	const { store, actions } = useContext(Context);
 	const favoritesItems = store.favorites.map((item, index) => {
+		let url = "";
+		if (item.properties.climate) {
+			url = `/planet/${item.uid}`;
+		} else if (item.properties.height) {
+			url = `/people/${item.uid}`;
+		}
 		return (
 			<Dropdown.Item key={index}>
-				{item.properties.name}
+				<Link to={url}>{item.properties.name}</Link>
 				<i onClick={() => actions.removeItem(index)} className="fa fa-trash ml-2" aria-hidden="true" />
 			</Dropdown.Item>
 		);
